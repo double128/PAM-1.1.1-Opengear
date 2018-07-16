@@ -1,0 +1,92 @@
+Index: Linux-PAM-1.1.1/Makefile.am
+=========================================================================
+--- Makefile.am	2009-03-02 07:17:27.000000000 -0800
++++ Makefile.am.new	2018-07-13 10:29:05.766567883 -0700
+@@ -5,9 +5,9 @@
+ AUTOMAKE_OPTIONS = 1.9 gnu dist-bzip2 check-news
+ 
+ if STATIC_MODULES
+-SUBDIRS = modules libpam libpamc libpam_misc tests po conf doc examples xtests
++SUBDIRS = modules libpam libpamc libpam_misc tests po conf
+ else
+-SUBDIRS = libpam tests libpamc libpam_misc modules po conf doc examples xtests
++SUBDIRS = libpam tests libpamc libpam_misc modules po conf
+ endif
+ 
+ CLEANFILES = *~
+@@ -23,21 +23,5 @@
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-release: dist releasedocs
++release: dist
+ 
+-release-docs: releasedocs
+-
+-releasedocs:
+-	rm -rf Linux-PAM-$(VERSION)
+-	mkdir -p Linux-PAM-$(VERSION)/doc
+-	make -C doc releasedocs
+-	tar zfc Linux-PAM-$(VERSION)-docs.tar.gz \
+-		Linux-PAM-$(VERSION)/doc
+-	tar jfc Linux-PAM-$(VERSION)-docs.tar.bz2 \
+-		Linux-PAM-$(VERSION)/doc
+-	rm -rf Linux-PAM-$(VERSION)
+-
+-xtests:
+-	make -C xtests xtests
+-
+-.PHONY: xtests
+
+Index: Linux-PAM-1.1.1/Makefile.in
+=================================================================
+--- Makefile.in	2009-12-16 04:25:55.000000000 -0800
++++ Makefile.in.new	2018-07-13 10:30:04.695442423 -0700
+@@ -80,8 +80,7 @@
+ 	distdir dist dist-all distcheck
+ ETAGS = etags
+ CTAGS = ctags
+-DIST_SUBDIRS = libpam tests libpamc libpam_misc modules po conf doc \
+-	examples xtests
++DIST_SUBDIRS = libpam tests libpamc libpam_misc modules po conf \
+ DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
+ distdir = $(PACKAGE)-$(VERSION)
+ top_distdir = $(distdir)
+@@ -279,8 +278,8 @@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+ AUTOMAKE_OPTIONS = 1.9 gnu dist-bzip2 check-news
+-@STATIC_MODULES_FALSE@SUBDIRS = libpam tests libpamc libpam_misc modules po conf doc examples xtests
+-@STATIC_MODULES_TRUE@SUBDIRS = modules libpam libpamc libpam_misc tests po conf doc examples xtests
++@STATIC_MODULES_FALSE@SUBDIRS = libpam tests libpamc libpam_misc modules po conf
++@STATIC_MODULES_TRUE@SUBDIRS = modules libpam libpamc libpam_misc tests po conf
+ CLEANFILES = *~
+ M4_FILES = m4/gettext.m4 m4/iconv.m4 m4/intlmacosx.m4 \
+ 	m4/japhar_grep_cflags.m4 m4/jh_path_xml_catalog.m4 \
+@@ -792,25 +791,7 @@
+ 	mostlyclean mostlyclean-generic mostlyclean-libtool pdf pdf-am \
+ 	ps ps-am tags tags-recursive uninstall uninstall-am
+ 
+-
+-release: dist releasedocs
+-
+-release-docs: releasedocs
+-
+-releasedocs:
+-	rm -rf Linux-PAM-$(VERSION)
+-	mkdir -p Linux-PAM-$(VERSION)/doc
+-	make -C doc releasedocs
+-	tar zfc Linux-PAM-$(VERSION)-docs.tar.gz \
+-		Linux-PAM-$(VERSION)/doc
+-	tar jfc Linux-PAM-$(VERSION)-docs.tar.bz2 \
+-		Linux-PAM-$(VERSION)/doc
+-	rm -rf Linux-PAM-$(VERSION)
+-
+-xtests:
+-	make -C xtests xtests
+-
+-.PHONY: xtests
++release:dist
+ 
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.

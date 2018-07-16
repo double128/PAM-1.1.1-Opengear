@@ -1,0 +1,611 @@
+Index: Linux-PAM-1.1.1/modules/pam_access/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:36.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.455769459 -0700
+@@ -283,7 +283,7 @@
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include \
+ 	-DPAM_ACCESS_CONFIG=\"$(SCONFIGDIR)/access.conf\"
+ 
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_access.la
+ pam_access_la_LIBADD = -L$(top_builddir)/libpam -lpam @LIBNSL@
+ secureconf_DATA = access.conf
+Index: Linux-PAM-1.1.1/modules/pam_cracklib/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:37.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.463769624 -0700
+@@ -281,7 +281,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ pam_cracklib_la_LIBADD = -L$(top_builddir)/libpam -lpam \
+ 	@LIBCRACK@ @LIBCRYPT@
+ 
+Index: Linux-PAM-1.1.1/modules/pam_debug/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:37.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.471769789 -0700
+@@ -279,7 +279,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_debug.la
+ pam_debug_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ TESTS = tst-pam_debug
+Index: Linux-PAM-1.1.1/modules/pam_deny/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:37.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.479769954 -0700
+@@ -279,7 +279,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_deny.la
+ pam_deny_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_echo/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:37.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.487770119 -0700
+@@ -279,7 +279,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_echo.la
+ pam_echo_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_env/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:38.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.491770201 -0700
+@@ -284,7 +284,7 @@
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include \
+ 	-DDEFAULT_CONF_FILE=\"$(SCONFIGDIR)/pam_env.conf\"
+ 
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_env.la
+ pam_env_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ secureconf_DATA = pam_env.conf
+Index: Linux-PAM-1.1.1/modules/pam_exec/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:38.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.499770366 -0700
+@@ -279,7 +279,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_exec.la
+ pam_exec_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_faildelay/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:38.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.507770531 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_faildelay.la
+ pam_faildelay_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_filter/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:39.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.515770695 -0700
+@@ -322,7 +322,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ include_HEADERS = pam_filter.h
+ pam_filter_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ securelib_LTLIBRARIES = pam_filter.la
+Index: Linux-PAM-1.1.1/modules/pam_ftp/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:40.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.523770860 -0700
+@@ -279,7 +279,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_ftp.la
+ pam_ftp_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ TESTS = tst-pam_ftp
+Index: Linux-PAM-1.1.1/modules/pam_group/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:40.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.531771025 -0700
+@@ -283,7 +283,7 @@
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include \
+ 	-DPAM_GROUP_CONF=\"$(SCONFIGDIR)/group.conf\"
+ 
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_group.la
+ pam_group_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ secureconf_DATA = group.conf
+Index: Linux-PAM-1.1.1/modules/pam_issue/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:41.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.535771108 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_issue.la
+ pam_issue_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_keyinit/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:41.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.543771272 -0700
+@@ -283,7 +283,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ @HAVE_KEY_MANAGEMENT_TRUE@securelib_LTLIBRARIES = pam_keyinit.la
+ pam_keyinit_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ all: all-am
+Index: Linux-PAM-1.1.1/modules/pam_lastlog/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:42.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.547771355 -0700
+@@ -280,7 +280,7 @@
+ XMLS = README.xml pam_lastlog.8.xml
+ TESTS = tst-pam_lastlog
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_lastlog.la
+ pam_lastlog_la_LIBADD = -L$(top_builddir)/libpam -lpam -lutil
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_limits/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:42.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.555771520 -0700
+@@ -286,7 +286,7 @@
+ 	-DLIMITS_FILE_DIR=\"$(limits_conf_dir)/*.conf\" \
+ 	-DLIMITS_FILE=\"$(SCONFIGDIR)/limits.conf\"
+ 
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_limits.la
+ pam_limits_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ secureconf_DATA = limits.conf
+Index: Linux-PAM-1.1.1/modules/pam_listfile/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:43.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.559771602 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_listfile.la
+ pam_listfile_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_localuser/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:43.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.567771767 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_localuser.la
+ pam_localuser_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_loginuid/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:43.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.571771849 -0700
+@@ -279,7 +279,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_loginuid.la
+ pam_loginuid_la_LIBADD = -L$(top_builddir)/libpam -lpam @LIBAUDIT@
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_mail/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:44.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.579772014 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_mail.la
+ pam_mail_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_mkhomedir/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:44.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.587772179 -0700
+@@ -290,7 +290,7 @@
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include \
+ 	    -DMKHOMEDIR_HELPER=\"$(sbindir)/mkhomedir_helper\"
+ 
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_mkhomedir.la
+ pam_mkhomedir_la_SOURCES = pam_mkhomedir.c
+ pam_mkhomedir_la_LIBADD = -L$(top_builddir)/libpam -lpam
+Index: Linux-PAM-1.1.1/modules/pam_motd/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:45.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.595772344 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_motd.la
+ pam_motd_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_namespace/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:45.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.603772509 -0700
+@@ -298,7 +298,7 @@
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include \
+         -DSECURECONF_DIR=\"$(SCONFIGDIR)/\"
+ 
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ noinst_HEADERS = md5.h pam_namespace.h argv_parse.h
+ @HAVE_UNSHARE_TRUE@securelib_LTLIBRARIES = pam_namespace.la
+ @HAVE_UNSHARE_TRUE@pam_namespace_la_SOURCES = pam_namespace.c md5.c argv_parse.c
+Index: Linux-PAM-1.1.1/modules/pam_nologin/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:46.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.607772591 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_nologin.la
+ pam_nologin_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_permit/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:46.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.615772756 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_permit.la
+ pam_permit_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_pwhistory/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:46.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.619772839 -0700
+@@ -283,7 +283,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ noinst_HEADERS = opasswd.h
+ securelib_LTLIBRARIES = pam_pwhistory.la
+ pam_pwhistory_la_LIBADD = -L$(top_builddir)/libpam -lpam @LIBCRYPT@
+Index: Linux-PAM-1.1.1/modules/pam_rhosts/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:47.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.627773003 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_rhosts.la
+ pam_rhosts_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_rootok/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:47.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.635773168 -0700
+@@ -282,7 +282,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include \
+ 	-I$(top_srcdir)/libpamc/include $(am__append_1)
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_2)
++AM_LDFLAGS =  -avoid-version -module $(am__append_2)
+ securelib_LTLIBRARIES = pam_rootok.la
+ pam_rootok_la_LIBADD = -L$(top_builddir)/libpam -lpam @LIBSELINUX@
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_securetty/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:48.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.639773251 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_securetty.la
+ pam_securetty_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_selinux/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:48.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.647773416 -0700
+@@ -302,7 +302,7 @@
+ 	-L$(top_builddir)/libpam_misc -lpam_misc
+ 
+ pam_selinux_la_LIBADD = -L$(top_builddir)/libpam -lpam @LIBSELINUX@
+-pam_selinux_la_LDFLAGS = -no-undefined -avoid-version -module \
++pam_selinux_la_LDFLAGS =  -avoid-version -module \
+ 	$(am__append_1)
+ @HAVE_LIBSELINUX_TRUE@securelib_LTLIBRARIES = pam_selinux.la
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README pam_selinux.8
+Index: Linux-PAM-1.1.1/modules/pam_sepermit/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:49.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.651773498 -0700
+@@ -295,7 +295,7 @@
+ 	-D SEPERMIT_LOCKDIR=\"$(sepermitlockdir)\"
+ 
+ pam_sepermit_la_LIBADD = -L$(top_builddir)/libpam -lpam @LIBSELINUX@
+-pam_sepermit_la_LDFLAGS = -no-undefined -avoid-version -module \
++pam_sepermit_la_LDFLAGS =  -avoid-version -module \
+ 	$(am__append_1)
+ @HAVE_LIBSELINUX_TRUE@secureconf_DATA = sepermit.conf
+ @HAVE_LIBSELINUX_TRUE@sepermitlock_DATA = 
+Index: Linux-PAM-1.1.1/modules/pam_shells/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:49.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.659773663 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_shells.la
+ pam_shells_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_stress/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:49.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.671773910 -0700
+@@ -272,7 +272,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_stress.la
+ pam_stress_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ all: all-am
+Index: Linux-PAM-1.1.1/modules/pam_succeed_if/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:49.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.675773993 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_succeed_if.la
+ pam_succeed_if_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_tally/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:50.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.683774157 -0700
+@@ -294,7 +294,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ noinst_HEADERS = faillog.h
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-pam_tally_la_LDFLAGS = -no-undefined -avoid-version -module \
++pam_tally_la_LDFLAGS =  -avoid-version -module \
+ 	$(am__append_1)
+ pam_tally_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ securelib_LTLIBRARIES = pam_tally.la
+Index: Linux-PAM-1.1.1/modules/pam_tally2/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:50.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.687774240 -0700
+@@ -296,7 +296,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ noinst_HEADERS = tallylog.h
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-pam_tally2_la_LDFLAGS = -no-undefined -avoid-version -module \
++pam_tally2_la_LDFLAGS =  -avoid-version -module \
+ 	$(am__append_1)
+ pam_tally2_la_LIBADD = -L$(top_builddir)/libpam -lpam $(LIBAUDIT)
+ pam_tally2_LDADD = -L$(top_builddir)/libpam -lpam $(LIBAUDIT)
+Index: Linux-PAM-1.1.1/modules/pam_time/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:51.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.695774405 -0700
+@@ -284,7 +284,7 @@
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include \
+ 	-DPAM_TIME_CONF=\"$(SCONFIGDIR)/time.conf\"
+ 
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ pam_time_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ securelib_LTLIBRARIES = pam_time.la
+ secureconf_DATA = time.conf
+Index: Linux-PAM-1.1.1/modules/pam_timestamp/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:51.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.703774570 -0700
+@@ -308,7 +308,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ noinst_HEADERS = hmacsha1.h sha1.h
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-pam_timestamp_la_LDFLAGS = -no-undefined -avoid-version -module \
++pam_timestamp_la_LDFLAGS =  -avoid-version -module \
+ 	$(AM_LDFLAGS) $(am__append_1)
+ pam_timestamp_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ securelib_LTLIBRARIES = pam_timestamp.la
+Index: Linux-PAM-1.1.1/modules/pam_tty_audit/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:51.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.707774652 -0700
+@@ -278,7 +278,7 @@
+ XMLS = README.xml pam_tty_audit.8.xml
+ securelibdir = $(SECUREDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ @HAVE_AUDIT_TTY_STATUS_TRUE@pam_tty_audit_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @HAVE_AUDIT_TTY_STATUS_TRUE@securelib_LTLIBRARIES = pam_tty_audit.la
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_umask/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:52.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.715774817 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module $(am__append_1)
++AM_LDFLAGS =  -avoid-version -module $(am__append_1)
+ securelib_LTLIBRARIES = pam_umask.la
+ pam_umask_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_unix/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:52.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.719774899 -0700
+@@ -328,7 +328,7 @@
+ 	-I$(top_srcdir)/libpamc/include \
+ 	-DCHKPWD_HELPER=\"$(sbindir)/unix_chkpwd\" \
+ 	-DUPDATE_HELPER=\"$(sbindir)/unix_update\" $(am__append_1)
+-pam_unix_la_LDFLAGS = -no-undefined -avoid-version -module \
++pam_unix_la_LDFLAGS =  -avoid-version -module \
+ 	$(am__append_2)
+ pam_unix_la_LIBADD = @LIBNSL@ -L$(top_builddir)/libpam -lpam \
+ 	@LIBCRYPT@ @LIBSELINUX@
+Index: Linux-PAM-1.1.1/modules/pam_userdb/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:53.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.727775064 -0700
+@@ -284,7 +284,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module \
++AM_LDFLAGS =  -avoid-version -module \
+ 	-L$(top_builddir)/libpam -lpam @LIBDB@ @LIBCRYPT@ \
+ 	$(am__append_1)
+ @HAVE_LIBDB_TRUE@securelib_LTLIBRARIES = pam_userdb.la
+Index: Linux-PAM-1.1.1/modules/pam_warn/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:53.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.731775147 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module \
++AM_LDFLAGS =  -avoid-version -module \
+ 	-L$(top_builddir)/libpam -lpam $(am__append_1)
+ securelib_LTLIBRARIES = pam_warn.la
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_wheel/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:54.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.743775394 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module \
++AM_LDFLAGS =  -avoid-version -module \
+ 	-L$(top_builddir)/libpam -lpam $(am__append_1)
+ securelib_LTLIBRARIES = pam_wheel.la
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/modules/pam_xauth/Makefile.in
+===========================================================
+--- Makefile.in	2009-12-16 04:25:54.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.747775476 -0700
+@@ -280,7 +280,7 @@
+ securelibdir = $(SECUREDIR)
+ secureconfdir = $(SCONFIGDIR)
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module \
++AM_LDFLAGS =  -avoid-version -module \
+ 	-L$(top_builddir)/libpam -lpam @LIBSELINUX@ $(am__append_1)
+ securelib_LTLIBRARIES = pam_xauth.la
+ @ENABLE_REGENERATE_MAN_TRUE@noinst_DATA = README
+Index: Linux-PAM-1.1.1/libpam/Makefile.in
+======================================================
+--- Makefile.in	2009-12-16 04:25:34.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.755775641 -0700
+@@ -299,7 +299,7 @@
+ noinst_HEADERS = pam_prelude.h pam_private.h pam_tokens.h \
+ 		pam_modutil_private.h pam_static_modules.h
+ 
+-libpam_la_LDFLAGS = -no-undefined -version-info 82:2:82 \
++libpam_la_LDFLAGS =  -version-info 82:2:82 \
+ 	$(am__append_3)
+ libpam_la_LIBADD = @LIBAUDIT@ $(LIBPRELUDE_LIBS) @LIBDL@ \
+ 	$(am__append_2)
+Index: Linux-PAM-1.1.1/libpam_misc/Makefile.in
+======================================================
+--- Makefile.in	2009-12-16 04:25:35.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.759775724 -0700
+@@ -276,7 +276,7 @@
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include \
+ 	-I$(top_srcdir)/libpamc/include -I$(srcdir)/include
+ 
+-libpam_misc_la_LDFLAGS = -no-undefined -version-info 82:0:82 \
++libpam_misc_la_LDFLAGS =  -version-info 82:0:82 \
+ 	$(am__append_1)
+ libpam_misc_la_LIBADD = $(top_builddir)/libpam/libpam.la
+ lib_LTLIBRARIES = libpam_misc.la
+Index: Linux-PAM-1.1.1/libpamc/Makefile.in
+======================================================
+--- Makefile.in	2009-12-16 04:25:35.000000000 -0800
++++ Makefile.new	2018-07-13 09:32:16.767775888 -0700
+@@ -314,7 +314,7 @@
+ include_HEADERS = include/security/pam_client.h
+ noinst_HEADERS = libpamc.h
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(srcdir)/include
+-libpamc_la_LDFLAGS = -no-undefined -version-info 82:1:82 \
++libpamc_la_LDFLAGS =  -version-info 82:1:82 \
+ 	$(am__append_1)
+ lib_LTLIBRARIES = libpamc.la
+ libpamc_la_SOURCES = pamc_client.c pamc_converse.c pamc_load.c

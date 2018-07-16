@@ -1,0 +1,27 @@
+Index: Linux-PAM-1.1.1/doc/specs/parse_l.l
+===========================================================
+--- Linux-PAM-1.1.1.orig/doc/specs/parse_l.l	2006-07-24 08:47:40.000000000 -0700
++++ Linux-PAM-1.1.1/doc/specs/parse_l.l	2018-07-13 08:47:02.816811940 -0700
+@@ -7,7 +7,7 @@
+ 
+ #include "parse_y.h"
+ %}
+-
++%option noyywrap
+ %%
+ 
+ \#[\$]+[a-zA-Z]*(\=[0-9]+)?          return NEW_COUNTER;
+
+Index: Linux-PAM-1.1.1/conf/pam_conv1/pam_conv_l.l
+===========================================================
+--- Linux-PAM-1.1.1.orig/conf/pam_conv1/pam_conv_l.l	2006-07-24 09:14:40.000000000 -0700
++++ Linux-PAM-1.1.1/conf/pam_conv1/pam_conv_l.l	2018-07-13 08:48:04.025506589 -0700
+@@ -23,7 +23,7 @@
+ 
+     extern int current_line;
+ %}
+-
++%option noyywrap
+ %%
+ 
+ "#"[^\n]*         ; /* skip comments (sorry) */

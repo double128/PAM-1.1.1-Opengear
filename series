@@ -1,0 +1,6 @@
+pam_remove-examples.patch
+pam_disable-modules.patch
+pam_remove-no-undefined.patch
+pam_makefilein-fix.patch
+pam_remove-yywrap.patch
+pam-no-innetgr.patch

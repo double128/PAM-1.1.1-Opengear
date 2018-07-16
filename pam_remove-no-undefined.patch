@@ -1,0 +1,611 @@
+Index: Linux-PAM-1.1.1/libpam/Makefile.am
+=================================================================
+--- Linux-PAM-1.1.1.orig/libpam/Makefile.am	2009-11-04 06:04:49.000000000 -0800
++++ Linux-PAM-1.1.1/libpam/Makefile.am	2018-07-13 08:57:25.394673597 -0700
+@@ -20,7 +20,7 @@
+ noinst_HEADERS = pam_prelude.h pam_private.h pam_tokens.h \
+ 		pam_modutil_private.h pam_static_modules.h
+ 
+-libpam_la_LDFLAGS = -no-undefined -version-info 82:2:82
++libpam_la_LDFLAGS = -version-info 82:2:82
+ libpam_la_LIBADD = @LIBAUDIT@ $(LIBPRELUDE_LIBS) @LIBDL@
+ 
+ if STATIC_MODULES
+Index: Linux-PAM-1.1.1/libpamc/Makefile.am
+=================================================================
+--- Linux-PAM-1.1.1.orig/libpamc/Makefile.am	2009-05-05 06:58:12.000000000 -0700
++++ Linux-PAM-1.1.1/libpamc/Makefile.am	2018-07-13 08:59:45.836815183 -0700
+@@ -14,7 +14,7 @@
+ 
+ AM_CFLAGS=-I$(top_srcdir)/libpam/include -I$(srcdir)/include
+ 
+-libpamc_la_LDFLAGS = -no-undefined -version-info 82:1:82
++libpamc_la_LDFLAGS = -version-info 82:1:82
+ if HAVE_VERSIONING
+   libpamc_la_LDFLAGS += -Wl,--version-script=$(srcdir)/libpamc.map
+ endif
+Index: Linux-PAM-1.1.1/libpam_misc/Makefile.am
+=================================================================
+--- Linux-PAM-1.1.1.orig/libpam_misc/Makefile.am	2018-07-13 08:56:38.837934243 -0700
++++ Linux-PAM-1.1.1/libpam_misc/Makefile.am	2018-07-13 09:02:16.674995735 -0700
+@@ -11,7 +11,7 @@
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include \
+ 	-I$(top_srcdir)/libpamc/include -I$(srcdir)/include
+ 
+-libpam_misc_la_LDFLAGS = -no-undefined -version-info 82:0:82
++libpam_misc_la_LDFLAGS = -version-info 82:0:82
+ if HAVE_VERSIONING
+   libpam_misc_la_LDFLAGS += -Wl,--version-script=$(srcdir)/libpam_misc.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_access/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_access/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_access/Makefile.am	2018-07-13 08:23:25.569483626 -0700
+@@ -16,7 +16,7 @@
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include \
+ 	-DPAM_ACCESS_CONFIG=\"$(SCONFIGDIR)/access.conf\"
+-AM_LDFLAGS =  -no-undefined -avoid-version -module
++AM_LDFLAGS =   -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_cracklib/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_cracklib/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_cracklib/Makefile.am	2018-07-13 08:23:25.577483698 -0700
+@@ -18,7 +18,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_debug/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_debug/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_debug/Makefile.am	2018-07-13 08:23:25.581483734 -0700
+@@ -14,7 +14,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS =  -no-undefined -avoid-version -module
++AM_LDFLAGS =   -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_deny/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_deny/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_deny/Makefile.am	2018-07-13 08:23:25.585483770 -0700
+@@ -15,7 +15,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_echo/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_echo/Makefile.am 2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_echo/Makefile.am	2018-07-13 08:23:25.593483842 -0700
+@@ -15,7 +15,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_env/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_env/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_env/Makefile.am	2018-07-13 08:23:25.597483878 -0700
+@@ -16,7 +16,7 @@
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include \
+ 	-DDEFAULT_CONF_FILE=\"$(SCONFIGDIR)/pam_env.conf\"
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_exec/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_exec/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_exec/Makefile.am	2018-07-13 08:23:25.605483950 -0700
+@@ -15,7 +15,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_faildelay/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_faildelay/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_faildelay/Makefile.am	2018-07-13 08:23:25.609483986 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_filter/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_filter/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_filter/Makefile.am	2018-07-13 08:23:25.613484022 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_ftp/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_ftp/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_ftp/Makefile.am	2018-07-13 08:23:25.617484058 -0700
+@@ -14,7 +14,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_group/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_group/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_group/Makefile.am	2018-07-13 08:23:25.621484094 -0700
+@@ -15,7 +15,7 @@
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include \
+ 	-DPAM_GROUP_CONF=\"$(SCONFIGDIR)/group.conf\"
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_issue/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_issue/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_issue/Makefile.am	2018-07-13 08:23:25.625484130 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_keyinit/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_keyinit/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_keyinit/Makefile.am	2018-07-13 08:23:25.633484202 -0700
+@@ -23,7 +23,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_lastlog/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_lastlog/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_lastlog/Makefile.am	2018-07-13 08:23:25.637484238 -0700
+@@ -16,7 +16,7 @@
+ TESTS = tst-pam_lastlog
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_limits/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_limits/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_limits/Makefile.am	2018-07-13 08:23:25.641484274 -0700
+@@ -19,7 +19,7 @@
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include \
+ 	-DLIMITS_FILE_DIR=\"$(limits_conf_dir)/*.conf\" \
+ 	-DLIMITS_FILE=\"$(SCONFIGDIR)/limits.conf\"
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_listfile/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_listfile/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_listfile/Makefile.am	2018-07-13 08:23:25.645484310 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_localuser/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_localuser/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_localuser/Makefile.am	2018-07-13 08:23:25.649484346 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_loginuid/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_loginuid/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_loginuid/Makefile.am	2018-07-13 08:23:25.657484418 -0700
+@@ -15,7 +15,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_mail/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_mail/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_mail/Makefile.am	2018-07-13 08:23:25.661484454 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_mkhomedir/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_mkhomedir/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_mkhomedir/Makefile.am	2018-07-13 08:23:25.665484490 -0700
+@@ -19,7 +19,7 @@
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include \
+ 	    -DMKHOMEDIR_HELPER=\"$(sbindir)/mkhomedir_helper\"
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_motd/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_motd/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_motd/Makefile.am	2018-07-13 08:23:25.669484526 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_namespace/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_namespace/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_namespace/Makefile.am	2018-07-13 08:23:25.673484562 -0700
+@@ -24,7 +24,7 @@
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include \
+         -DSECURECONF_DIR=\"$(SCONFIGDIR)/\"
+-AM_LDFLAGS =  -no-undefined -avoid-version -module
++AM_LDFLAGS =   -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_nologin/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_nologin/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_nologin/Makefile.am	2018-07-13 08:23:25.681484634 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_permit/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_permit/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_permit/Makefile.am	2018-07-13 08:23:25.685484670 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_pwhistory/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_pwhistory/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_pwhistory/Makefile.am	2018-07-13 08:23:25.689484706 -0700
+@@ -17,7 +17,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_rhosts/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_rhosts/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_rhosts/Makefile.am	2018-07-13 08:23:25.693484742 -0700
+@@ -17,7 +17,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_rootok/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_rootok/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_rootok/Makefile.am	2018-07-13 08:23:25.697484779 -0700
+@@ -19,7 +19,7 @@
+ if HAVE_LIBSELINUX
+ AM_CFLAGS += -DWITH_SELINUX
+ endif
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_securetty/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_securetty/Makefile.am 2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_securetty/Makefile.am	2018-07-13 08:23:25.701484815 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_selinux/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_selinux/Makefile.am	2008-01-08 06:49:05.000000000 -0800
++++ Linux-PAM-1.1.1/modules/pam_selinux/Makefile.am	2018-07-13 08:23:25.705484850 -0700
+@@ -26,7 +26,7 @@
+ 	-L$(top_builddir)/libpam_misc -lpam_misc
+ 
+ pam_selinux_la_LIBADD = -L$(top_builddir)/libpam -lpam @LIBSELINUX@
+-pam_selinux_la_LDFLAGS = -no-undefined -avoid-version -module
++pam_selinux_la_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   pam_selinux_la_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_sepermit/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_sepermit/Makefile.am	2009-11-04 04:04:53.000000000 -0800
++++ Linux-PAM-1.1.1/modules/pam_sepermit/Makefile.am	2018-07-13 08:23:25.713484922 -0700
+@@ -25,7 +25,7 @@
+ 	-D SEPERMIT_LOCKDIR=\"$(sepermitlockdir)\"
+ 
+ pam_sepermit_la_LIBADD = -L$(top_builddir)/libpam -lpam @LIBSELINUX@
+-pam_sepermit_la_LDFLAGS = -no-undefined -avoid-version -module
++pam_sepermit_la_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   pam_sepermit_la_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_shells/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_shells/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_shells/Makefile.am	2018-07-13 08:23:25.717484958 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_stress/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_stress/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_stress/Makefile.am	2018-07-13 08:23:25.721484995 -0700
+@@ -12,7 +12,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_succeed_if/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_succeed_if/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_succeed_if/Makefile.am	2018-07-13 08:23:25.729485067 -0700
+@@ -17,7 +17,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_tally/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_tally/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_tally/Makefile.am	2018-07-13 08:23:25.733485102 -0700
+@@ -19,7 +19,7 @@
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+ 
+-pam_tally_la_LDFLAGS = -no-undefined -avoid-version -module
++pam_tally_la_LDFLAGS =  -avoid-version -module
+ pam_tally_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ if HAVE_VERSIONING
+   pam_tally_la_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+Index: Linux-PAM-1.1.1/modules/pam_tally2/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_tally2/Makefile.am 2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_tally2/Makefile.am	2018-07-13 08:23:25.737485138 -0700
+@@ -20,7 +20,7 @@
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+ 
+-pam_tally2_la_LDFLAGS = -no-undefined -avoid-version -module
++pam_tally2_la_LDFLAGS =  -avoid-version -module
+ pam_tally2_la_LIBADD = -L$(top_builddir)/libpam -lpam $(LIBAUDIT)
+ if HAVE_VERSIONING
+   pam_tally2_la_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+Index: Linux-PAM-1.1.1/modules/pam_time/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_time/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_time/Makefile.am	2018-07-13 08:23:25.741485175 -0700
+@@ -17,7 +17,7 @@
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include \
+ 	-DPAM_TIME_CONF=\"$(SCONFIGDIR)/time.conf\"
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_timestamp/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_timestamp/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_timestamp/Makefile.am	2018-07-13 08:23:25.745485211 -0700
+@@ -19,7 +19,7 @@
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+ 
+-pam_timestamp_la_LDFLAGS = -no-undefined -avoid-version -module $(AM_LDFLAGS)
++pam_timestamp_la_LDFLAGS =  -avoid-version -module $(AM_LDFLAGS)
+ pam_timestamp_la_LIBADD = -L$(top_builddir)/libpam -lpam
+ if HAVE_VERSIONING
+   pam_timestamp_la_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+Index: Linux-PAM-1.1.1/modules/pam_tty_audit/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_tty_audit/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_tty_audit/Makefile.am	2018-07-13 08:23:25.749485247 -0700
+@@ -13,7 +13,7 @@
+ securelibdir = $(SECUREDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_umask/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_umask/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_umask/Makefile.am	2018-07-13 08:23:25.757485319 -0700
+@@ -17,7 +17,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module
++AM_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_unix/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_unix/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_unix/Makefile.am	2018-07-13 08:23:25.761485354 -0700
+@@ -24,7 +24,7 @@
+   AM_CFLAGS += -D"WITH_SELINUX"
+ endif
+ 
+-pam_unix_la_LDFLAGS = -no-undefined -avoid-version -module
++pam_unix_la_LDFLAGS =  -avoid-version -module
+ if HAVE_VERSIONING
+   pam_unix_la_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+ endif
+Index: Linux-PAM-1.1.1/modules/pam_userdb/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_userdb/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_userdb/Makefile.am	2018-07-13 08:23:25.765485391 -0700
+@@ -18,7 +18,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module \
++AM_LDFLAGS =  -avoid-version -module \
+ 	-L$(top_builddir)/libpam -lpam @LIBDB@ @LIBCRYPT@
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+Index: Linux-PAM-1.1.1/modules/pam_warn/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_warn/Makefile.am 2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_warn/Makefile.am	2018-07-13 08:23:25.773485463 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module \
++AM_LDFLAGS =  -avoid-version -module \
+ 	-L$(top_builddir)/libpam -lpam
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+Index: Linux-PAM-1.1.1/modules/pam_wheel/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_wheel/Makefile.am	2009-06-29 00:24:27.000000000 -0700
++++ Linux-PAM-1.1.1/modules/pam_wheel/Makefile.am	2018-07-13 08:23:25.777485499 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module \
++AM_LDFLAGS =  -avoid-version -module \
+ 	-L$(top_builddir)/libpam -lpam
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
+Index: Linux-PAM-1.1.1/modules/pam_xauth/Makefile.am
+===================================================================
+--- Linux-PAM-1.1.1.orig/modules/pam_xauth/Makefile.am	2009-11-04 04:04:53.000000000 -0800
++++ Linux-PAM-1.1.1/modules/pam_xauth/Makefile.am	2018-07-13 08:23:25.781485534 -0700
+@@ -16,7 +16,7 @@
+ secureconfdir = $(SCONFIGDIR)
+ 
+ AM_CFLAGS = -I$(top_srcdir)/libpam/include -I$(top_srcdir)/libpamc/include
+-AM_LDFLAGS = -no-undefined -avoid-version -module \
++AM_LDFLAGS =  -avoid-version -module \
+ 	-L$(top_builddir)/libpam -lpam @LIBSELINUX@
+ if HAVE_VERSIONING
+   AM_LDFLAGS += -Wl,--version-script=$(srcdir)/../modules.map
