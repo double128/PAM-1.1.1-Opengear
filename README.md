@@ -27,3 +27,7 @@ DO NOT USE THE ROMFS FUNCTION IN THE CDK'S CUSTOM MAKE. You do not want to overw
 
 #### Notes
 This version of PAM does not come with pam_limit, pam_pwhistory, or pam_timestamp. These do not compile at all with uClibc. 
+
+As an additional note, if you are to compile the files yourself, it *must* be compiled with pam_adduser. The files for this are in the "src" folder. The patches will add a folder for pam_adduser and it will look for the makefile for it and not properly compile without the pam_adduser makefile. All you have to do is take the .c and makefile in the pam_adduser folder and move them to the pam_adduser folder at Linux-PAM-1.1.1/modules/pam_adduser.
+
+The source code for pam_adduser was provided to me by Opengear. We needed it to be modified to prevent it from removing RADIUS-authenticated users from a group if they were already logged in with another group. 
