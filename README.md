@@ -1,6 +1,6 @@
 # Linux PAM 1.1.1 -- Opengear CM71xx support edition
 
-#### Introduction
+### Introduction
 I've been working on properly configuring an Opengear CM71xx for deployment in a university lab setting. We required certain functionality that required specific Linux PAM modules. However, Opengear firmware currently does not come with the modules we need (specifically pam_exec).
 
 I'm putting this here as a backup in case the lab owners need backups for the firmware I customized. However, I also have noticed that a few other people have had issues with compiling software properly for the CM71xx (more specifically, devices using uClinux/uClibc). While compiling for the CM71xx is not as difficult (as it comes with a CDK with its own maketools), it can still be fairly difficult for a beginner (as I am).
@@ -11,7 +11,7 @@ I do not know if this matters or not, but I compiled these libraries for the CM7
 
 Anyways, this version of PAM is intended to be used as a resource for modules that are compiled to work with the Opengear CM71xx. As such, you basically just have to pick and choose the modules you want to install. 
 
-#### Installation
+### Installation
 The files of your choosing in "modules" should be installed to `/lib/security` in the romfs folder. Additional config files are available and are listed in the correct directories as to where they should be installed into `romfs`.
 
 The patches folder is an alternate option in case you want to compile your own version of PAM using the CDK. Keep in mind that you will need to use Linux-PAM 1.1.1, which is available through the Linux PAM website. On the CDK, you will need to create a folder and a Makefile (for autotools) inside of said folder. We will call this folder `pam`. In `pam`, add the following to the Makefile:
@@ -25,11 +25,11 @@ In the `pam` folder (same directory as the Makefile), create a folder called `pa
 
 Then, return to the top directory of the CDK and run `make user/pam_only`. Everything should compile perfectly. You do not have to run `./configure` as the CDK will handle this process for you. You may need to run the make command again as it tends to fail the first time due to some text file. It is fine to run the compilation process again.
 
-You should now have a installation folder containing the compiled files in `pam/build/Linux-PAM-1.1.1-install`. All the PAM files are contained there. 
+You should now have a installation folder containing the compiled files in `pam/build/Linux-PAM-1.1.1-install`. All the PAM files are contained there. These files are then placed in `/lib/security` in the `romfs` folder, and then `make image` is used in the CDK's top directory. A file called `image.bin` is created in `/images` and can be uploaded to the CM71xx through the web interface.
 
 **DO NOT USE THE ROMFS COMMAND FROM THE CDK'S MAKETOOLS**. You do not want to overwrite the pre-existing libpam libraries. This will cause issues with the CM and will cause it to stop functioning entirely (you will need to netboot it; I would know, I have bricked my CM71xx many times through experimentation). 
 
-#### Notes
+### Notes
 This version of PAM does not come with pam_limit, pam_pwhistory, or pam_timestamp. These do not compile at all with uClibc. 
 
 As an additional note, if you are to compile the files yourself, it *must* be compiled with `pam_adduser`. The files for this are in the "src" folder. The patches included will add a folder for `pam_adduser` and will look for the makefile for it. If that makefile isn't present, PAM's compilation will fail. All you have to do is take the .c and makefile in the pam_adduser folder and move them to the pam_adduser folder at `Linux-PAM-1.1.1/modules/pam_adduser`.
