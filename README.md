@@ -31,3 +31,6 @@ This version of PAM does not come with pam_limit, pam_pwhistory, or pam_timestam
 As an additional note, if you are to compile the files yourself, it *must* be compiled with pam_adduser. The files for this are in the "src" folder. The patches will add a folder for pam_adduser and it will look for the makefile for it and not properly compile without the pam_adduser makefile. All you have to do is take the .c and makefile in the pam_adduser folder and move them to the pam_adduser folder at Linux-PAM-1.1.1/modules/pam_adduser.
 
 The source code for pam_adduser was provided to me by Opengear. We needed it to be modified to prevent it from removing RADIUS-authenticated users from a group if they were already logged in with another group. 
+
+Please keep in mind that I **have not tested the functionality of these modules, except for pam_exec and pam_env***. I do not know how any of the other modules interact with the pre-existing PAM libraries on the device. As I said earlier, *do not replace the pre-existing libraries in the romfs folder in the CDK*. This will break functionality of the device and will brick it, requiring you to upload an emergency firmware file through netboot.
+
