@@ -10,8 +10,11 @@ The files in modules should be installed to /lib/security in the romfs folder. A
 
 The patches folder is an alternate option in case you want to compile your own version of PAM using the CDK. Keep in mind that you will need to use PAM 1.1.1. On the CDK, you will need to create a folder and a Makefile (for autotools). In that folder, create a file called "Makefile" and add the following to it:
 
+
   URL = http://www.linux-pam.org/library/Linux-PAM-1.1.1.tar.gz
+  
   include $(ROOTDIR)/tools/automake.inc
+  
 
 In the same directory as Makefile, create a folder called "patches" and add all the files from the patches folder into that folder.
 
